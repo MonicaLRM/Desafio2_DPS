@@ -6,7 +6,8 @@ export default function AgregarCumpleanos({ agregarContacto }) {
   const [nombre, setNombre] = useState('');
   const [telefono, setTelefono] = useState('');
   const [email, setEmail] = useState('');
-  const [fechaNacimiento, setFechaNacimiento] = useState(new Date());
+const [fechaNacimiento, setFechaNacimiento] = useState(new Date(new Date().setHours(0, 0, 0, 0)));
+
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -46,7 +47,7 @@ export default function AgregarCumpleanos({ agregarContacto }) {
     setNombre('');
     setTelefono('');
     setEmail('');
-    setFechaNacimiento(new Date());
+    setFechaNacimiento(new Date(new Date().setHours(0, 0, 0, 0)));
   };
 
   const onChangeDate = (event, selectedDate) => {
@@ -81,7 +82,7 @@ export default function AgregarCumpleanos({ agregarContacto }) {
         keyboardType="email-address"
         autoCapitalize="none"
       />
-      <Text>Fecha de Cumpleaños</Text>
+      <Text>Fecha de Nacimiento</Text>
       <View>
         <Button title="Seleccionar Fecha" onPress={() => setShowDatePicker(true)} />
         <Text>{fechaNacimiento.toISOString().split('T')[0]}</Text>
@@ -119,5 +120,4 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 });
-
 
