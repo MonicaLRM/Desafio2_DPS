@@ -5,6 +5,7 @@ import { FontAwesome } from '@expo/vector-icons';
 
 const ObtenerColor = (date) => {
   const Hoy = new Date();
+Hoy.setHours(0, 0, 0, 0);
   const proxCumple = new Date(date);
   proxCumple.setFullYear(Hoy.getFullYear());
 
@@ -14,6 +15,7 @@ const ObtenerColor = (date) => {
 
 const DiasFaltantes = (date) => {
   const Hoy = new Date();
+Hoy.setHours(0, 0, 0, 0);
   const proxCumple = new Date(date);
   proxCumple.setFullYear(Hoy.getFullYear());
 
@@ -60,7 +62,7 @@ export default function Contactos({ contactos, eliminarContacto, navigation }) {
             let color = ObtenerColor(date);
 
             let message;
-            if (Math.abs(daysUntilBirthday) === 364) {
+            if (daysUntilBirthday === 364) {
               message = 'Hoy es el cumpleaños';
               color = 'green';
             } else if (color === 'red') {
